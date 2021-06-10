@@ -1,6 +1,6 @@
-# Polar Microphone Sensitivity
+# Polar Microphone Sensitivity JavaScript Chart
 
-![Polar Microphone Sensitivity](polarMicrophoneSensitivity.png)
+![Polar Microphone Sensitivity JavaScript Chart](polarMicrophoneSensitivity.png)
 
 This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
