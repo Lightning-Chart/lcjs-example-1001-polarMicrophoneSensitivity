@@ -4,7 +4,7 @@
  * Also shows configuration of PolarAxes.
  */
 // Import LightningChartJS
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 
 // Extract required parts from LightningChartJS.
 const { lightningChart, Themes } = lcjs
@@ -30,22 +30,13 @@ const app = (data) => {
         .getAmplitudeAxis()
         // Set amplitude interval manually.
         // [-39 dB, 0 dB]
-        .setInterval({start: -39, end: 0, stopAxisAfter: false})
+        .setInterval({ start: -39, end: 0, stopAxisAfter: false })
         .setTitle('Sensitivity (dB)')
 
     // Create series for each data set.
     const series = data.map((info, i) => {
         const { name, hex } = info
-        const polarLineSeries = polar
-            .addLineSeries()
-            .setName(name)
-            .setCursorResultTableFormatter((builder, series, angleDeg, amplitude, format) =>
-                builder
-                    .addRow(`${series.getName()} signal`)
-                    .addRow('Angle', '', `${Math.round(angleDeg)} °`)
-                    .addRow('Sensitivity', '', `${format(amplitude)} dB`),
-            )
-
+        const polarLineSeries = polar.addLineSeries().setName(name)
         // Set series data.
         const polarPoints = data[i].data
         const polarPointsWithStatic = polarPoints.map((polarPoint) => ({
